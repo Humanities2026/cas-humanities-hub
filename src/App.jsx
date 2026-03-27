@@ -268,9 +268,9 @@ const ADMIN_PWD = "HODadmin2026";
    DEFAULT COURSES
 ───────────────────────────────────────────────────────────────── */
 const DEFAULT_COURSES = [
-  { id: "c1", name: "AP Economics", icon: "📈", description: "College-level economics with C3 inquiry focus" },
-  { id: "c2", name: "AP History", icon: "⏳", description: "Historical thinking, sources, and argumentation" },
-  { id: "c3", name: "AP Human Geography", icon: "🌍", description: "Spatial thinking and human-environment interaction" },
+  { id: "c1", name: "Economics", icon: "📈", description: "College-level economics with C3 inquiry focus" },
+  { id: "c2", name: "History", icon: "⏳", description: "Historical thinking, sources, and argumentation" },
+  { id: "c3", name: "Geography", icon: "🌍", description: "Spatial thinking and human-environment interaction" },
   { id: "c4", name: "Civics", icon: "⚖️", description: "Rights, power, participation, and democratic institutions" },
   { id: "c5", name: "Sociology", icon: "🏘️", description: "Human behaviour, society, culture, and identity" },
   { id: "c6", name: "Business and Marketing", icon: "💼", description: "Business concepts, strategy, and marketing inquiry" },
@@ -318,11 +318,11 @@ const MODULES = [
     ]
   },
   {
-    id: "m1", seq: 5, title: "Department Non-Negotiables", icon: "📋", color: "#1044A3", light: "var(--blue-pale)",
+    id: "m5", seq: 5, title: "Department Non-Negotiables", icon: "📋", color: "#1044A3", light: "var(--blue-pale)",
     description: "The six baseline standards every Humanities lesson must meet — grounded in C3 and the 4-day inquiry model.",
     lessons: [
       {
-        id: "m1l1", title: "The 6 Non-Negotiables Explained", dur: "10 min", type: "read",
+        id: "m5l1", title: "The 6 Non-Negotiables Explained", dur: "10 min", type: "read",
         content: {
           intro: "The CAS Humanities Non-Negotiables are not aspirational targets — they are baseline expectations for every lesson, every day, across every subject. They are grounded in the C3 Framework Inquiry Arc and our 4-day unit model: one dimension per lesson, D1 → D2 → D3 → D4.",
           sections: [
@@ -336,7 +336,7 @@ const MODULES = [
         }
       },
       {
-        id: "m1l2", title: "Scenario Practice — Spot the Gap", dur: "10 min", type: "scenario",
+        id: "m5l2", title: "Scenario Practice — Spot the Gap", dur: "10 min", type: "scenario",
         scenario: {
           context: "You are the HOD on a walkthrough. For each lesson description, identify which Non-Negotiable is missing or inadequate.",
           cases: [
@@ -346,7 +346,7 @@ const MODULES = [
         }
       },
       {
-        id: "m1l3", title: "Non-Negotiables Mastery Quiz", dur: "8 min", type: "quiz",
+        id: "m5l3", title: "Non-Negotiables Mastery Quiz", dur: "8 min", type: "quiz",
         questions: [
           { q: "How many lessons does one C3 unit span at CAS Humanities, and what determines the structure?", sub: "", opts: ["2 lessons — one for teaching, one for assessment", "4 lessons — one per C3 dimension, D1 through D4", "5 lessons — one per stage of the 5E model", "6 lessons — one per Non-Negotiable"], correct: 1, explain: "The CAS model gives each C3 dimension a full 45-minute lesson: D1 (Developing Questions), D2 (Applying Concepts), D3 (Evaluating Sources), D4 (Communicating Conclusions). This 4-day structure is NN2." },
           { q: "A teacher's plan has identical entries in all five differentiation columns across all four lessons: 'Complete the source analysis task.' What does this violate?", sub: "", opts: ["NN3 — evidence-based talk is missing", "NN5 — no genuine differentiation has been planned; identical entries across all columns is not differentiation", "NN6 — there is no exit ticket", "NN1 — the compelling question is not visible"], correct: 1, explain: "NN5 requires genuine modification per group across all four dimension-lessons. Identical entries mean no differentiation. For D3, a G&T extension might ask students to evaluate source corroboration; for SEN, a structured evaluation frame is provided." },
@@ -581,10 +581,10 @@ function teacherPct(t) {
    DEFAULT TEACHERS
 ───────────────────────────────────────────────────────────────── */
 const DEFAULT_TEACHERS = [
-  { id: "t1", name: "Mr. Osama", subject: "AP Economics", role: "Current", email: "usama.barrak@cityamericanschool.ae", joined: "Aug 2023", courses: ["c1"], progress: { m1: 3, m2: 4, m3: 3, m4: 2 } },
-  { id: "t2", name: "Mr. Mo", subject: "AP History", role: "Current", email: "m.mousa@cityamericanschool.ae", joined: "Sep 2021", courses: ["c2"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
+  { id: "t1", name: "Mr. Osama", subject: "Economics", role: "Current", email: "usama.barrak@cityamericanschool.ae", joined: "Aug 2023", courses: ["c1"], progress: { m1: 3, m2: 4, m3: 3, m4: 2 } },
+  { id: "t2", name: "Mr. Mo", subject: "History", role: "Current", email: "m.mousa@cityamericanschool.ae", joined: "Sep 2021", courses: ["c2"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
   { id: "t3", name: "Mr. Ajlony", subject: "Civics", role: "New Joiner", email: "muhammad.ahmad@cityamericanschool.ae", joined: "Jan 2026", courses: ["c4", "c5"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
-  { id: "t4", name: "James Kowalski", subject: "AP Human Geography", role: "Current", email: "j.kowalski@cas.ae", joined: "Aug 2022", courses: ["c3"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
+  { id: "t4", name: "James Kowalski", subject: "Geography", role: "Current", email: "j.kowalski@cas.ae", joined: "Aug 2022", courses: ["c3"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
   { id: "t5", name: "Ms. Bahija", subject: "Civics", role: "New Joiner", email: "b.hamdi@cityamericanschool.ae", joined: "Jan 2026", courses: ["c6"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
 ];
 
@@ -647,8 +647,6 @@ export default function App() {
   // ── TRAINING SESSION ──────────────────────────────────────────
   // null = not yet chosen, "guest" = guest mode, teacher object = logged in
 
-  // Progress used by the training tab — either the logged-in teacher's persistent
-  // progress (from window.storage) or a local guest object (lost on close)
 
   // The "effective" progress used everywhere in the training tab
   const notify = (msg) => { setToast(msg); setTimeout(() => setToast(null), 3200); };
