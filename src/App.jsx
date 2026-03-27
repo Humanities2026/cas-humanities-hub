@@ -663,7 +663,19 @@ export default function App() {
 
 
   // Load this teacher's progress from persistent storage when they log in
-  const switchTab = (t) => { setTab(t); setActiveLesson(null); setActiveMod(null); };
+  const switchTab = async (t) => {
+    setTab(t);
+    setActiveLesson(null);
+    setActiveMod(null);
+
+    // Fresh pull from cloud to ensure Teacher/Admin are in sync
+    try {
+      const { data: tData } = await supabase.from('teachers').select('*');
+      if (tData) setTeachers(tData);
+    } catch (e) {
+      console.log("Quick sync failed", e);
+    }
+  };
 
   if (teachers === null || courses === null) {
     return (
@@ -990,30 +1002,32 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
   };
 
   const markDone = async (lessonId) => {
-    // 1. Prepare the updated progress object
     const updatedProg = { ...progress, [lessonId]: true };
     setProgress(updatedProg);
     setSaving(true);
 
     try {
-      // 2. Update the specific teacher's row in Supabase
+      // 1. We update the specific teacher row
       const { error } = await supabase
         .from('teachers')
-        .update({ progress: updatedProg })
-        .eq('id', teacher.id); // Matches the ID of the logged-in teacher
+        .upsert({
+          ...teacher,
+          progress: updatedProg
+        });
 
       if (error) throw error;
 
-      // 3. Update the local 'teachers' list so the HOD Admin view stays in sync
+      // 2. We update the global 'teachers' state so Admin sees it immediately
       const updatedList = teachers.map(t =>
         t.id === teacher.id ? { ...t, progress: updatedProg } : t
       );
       saveTeachers(updatedList);
 
-      notify("✓ Progress synced to Supabase!");
+      notify("✓ Progress saved to cloud!");
     } catch (err) {
       console.error("Sync error:", err);
-      notify("⚠️ Cloud sync failed: " + err.message);
+      // If fetch fails, we notify the user but keep the local progress so they can keep working
+      notify("⚠️ Sync error (Offline mode): Progress saved locally.");
     } finally {
       setSaving(false);
     }
