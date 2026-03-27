@@ -581,11 +581,11 @@ function teacherPct(t) {
    DEFAULT TEACHERS
 ───────────────────────────────────────────────────────────────── */
 const DEFAULT_TEACHERS = [
-  { id: "t1", name: "Sarah Mitchell", subject: "AP Economics", role: "Current", email: "s.mitchell@cas.ae", joined: "Aug 2023", courses: ["c1"], progress: { m1: 3, m2: 4, m3: 3, m4: 2 } },
-  { id: "t2", name: "Omar Al-Rashidi", subject: "AP History", role: "Current", email: "o.rashidi@cas.ae", joined: "Sep 2021", courses: ["c2"], progress: { m1: 3, m2: 4, m3: 3, m4: 3 } },
-  { id: "t3", name: "Priya Nair", subject: "Civics", role: "New Joiner", email: "p.nair@cas.ae", joined: "Jan 2026", courses: ["c4", "c5"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
-  { id: "t4", name: "James Kowalski", subject: "AP Human Geography", role: "Current", email: "j.kowalski@cas.ae", joined: "Aug 2022", courses: ["c3"], progress: { m1: 3, m2: 3, m3: 2, m4: 1 } },
-  { id: "t5", name: "Fatima Al-Zaabi", subject: "Business and Marketing", role: "New Joiner", email: "f.alzaabi@cas.ae", joined: "Jan 2026", courses: ["c6"], progress: { m1: 1, m2: 0, m3: 0, m4: 0 } },
+  { id: "t1", name: "Mr. Osama", subject: "AP Economics", role: "Current", email: "usama.barrak@cityamericanschool.ae", joined: "Aug 2023", courses: ["c1"], progress: { m1: 3, m2: 4, m3: 3, m4: 2 } },
+  { id: "t2", name: "Mr. Mo", subject: "AP History", role: "Current", email: "m.mousa@cityamericanschool.ae", joined: "Sep 2021", courses: ["c2"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
+  { id: "t3", name: "Mr. Ajlony", subject: "Civics", role: "New Joiner", email: "muhammad.ahmad@cityamericanschool.ae", joined: "Jan 2026", courses: ["c4", "c5"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
+  { id: "t4", name: "James Kowalski", subject: "AP Human Geography", role: "Current", email: "j.kowalski@cas.ae", joined: "Aug 2022", courses: ["c3"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
+  { id: "t5", name: "Ms. Bahija", subject: "Civics", role: "New Joiner", email: "b.hamdi@cityamericanschool.ae", joined: "Jan 2026", courses: ["c6"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
 ];
 
 /* ─────────────────────────────────────────────────────────────────
@@ -597,7 +597,7 @@ export default function App() {
   const [courses, setCourses] = useState(null);
   const [adminIn, setAdminIn] = useState(false);
   const [toast, setToast] = useState(null);
-  const [storageAllowed, setStorageAllowed] = useState(true);
+
 
   useEffect(() => {
     const fetchInitialData = async () => {
@@ -611,13 +611,13 @@ export default function App() {
         // 2. Use database data if it exists, otherwise use your defaults
         setTeachers(tData?.length ? tData : DEFAULT_TEACHERS);
         setCourses(cData?.length ? cData : DEFAULT_COURSES);
-        setStorageAllowed(true);
+
       } catch (err) {
         console.error("Supabase Error:", err);
         // Fallback to defaults if the database is unreachable
         setTeachers(DEFAULT_TEACHERS);
         setCourses(DEFAULT_COURSES);
-        setStorageAllowed(false);
+
       }
     };
 
@@ -682,11 +682,6 @@ export default function App() {
   return (
     <div>
       <style>{CSS}</style>
-      {!storageAllowed && (
-        <div style={{ background: "#FAEEDA", borderBottom: "2px solid #BA7517", padding: "8px 20px", fontSize: 12, color: "#633806", display: "flex", alignItems: "center", gap: 8 }}>
-          ⚠️ Shared storage access was denied. Changes to teachers and courses will not be saved after you close this tab. To persist data, refresh and click <b>Allow</b> on the storage prompt.
-        </div>
-      )}
 
       <nav className="nav">
         <div className="nav-logo">CAS <em>Humanities</em> Training Hub</div>
