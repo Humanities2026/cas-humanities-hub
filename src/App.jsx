@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import { supabase } from "./supabase.js";
 import * as React from "react";
 
 /* ─────────────────────────────────────────────────────────────────
@@ -313,7 +312,7 @@ const MODULES = [
     ]
   },
   {
-    id:"m1", seq:2, title:"Department Non-Negotiables", icon:"📋", color:"#1044A3", light:"var(--blue-pale)",
+    id:"m1", seq:5, title:"Department Non-Negotiables", icon:"📋", color:"#1044A3", light:"var(--blue-pale)",
     desc:"The six baseline standards every Humanities lesson must meet — grounded in C3 and the 4-day inquiry model.",
     lessons:[
       { id:"m1l1", title:"The 6 Non-Negotiables Explained", dur:"10 min", type:"read",
@@ -347,7 +346,7 @@ const MODULES = [
     ]
   },
   {
-    id:"m2", seq:3, title:"The C3 Framework", icon:"🔍", color:"#1044A3", light:"#EAF2FF",
+    id:"m2", seq:2, title:"The C3 Framework", icon:"🔍", color:"#1044A3", light:"#EAF2FF",
     desc:"Master the four Dimensions of the Inquiry Arc — from question to argument.",
     lessons:[
       { id:"m2l1", title:"The Inquiry Arc — Four Dimensions", dur:"12 min", type:"read",
@@ -389,7 +388,7 @@ const MODULES = [
     ]
   },
   {
-    id:"m3", seq:4, title:"5E Lesson Structure", icon:"⚙️", color:"#E8650A", light:"#FEF0E6",
+    id:"m3", seq:3, title:"5E Lesson Structure", icon:"⚙️", color:"#E8650A", light:"#FEF0E6",
     desc:"Design lessons that move through a complete 5E learning cycle in 45 minutes.",
     lessons:[
       { id:"m3l1", title:"5E Deep Dive — Each Stage Unpacked", dur:"12 min", type:"read",
@@ -421,7 +420,7 @@ const MODULES = [
     ]
   },
   {
-    id:"m4", seq:5, title:"Subject-Specific Application", icon:"📚", color:"#1A5CC8", light:"#EAF2FF",
+    id:"m4", seq:4, title:"Subject-Specific Application", icon:"📚", color:"#1A5CC8", light:"#EAF2FF",
     desc:"Apply C3 and 5E to your specific subject — content adapts to the courses assigned to you in Admin.",
     lessons:[
       { id:"m4l1", title:"Your Subject's Lens — C3 by Discipline", dur:"14 min", type:"read", subjectSpecific:true, contentKey:"lens" },
@@ -542,17 +541,18 @@ export default function App() {
   useEffect(() => {
     (async () => {
       try {
-        const { data: rows } = await supabase.from("app_data").select("key,value").in("key", ["cas_shared_teachers","cas_shared_courses"]);
-        const tRow = rows?.find(r => r.key === "cas_shared_teachers");
-        const cRow = rows?.find(r => r.key === "cas_shared_courses");
-        const loadedTeachers = tRow ? JSON.parse(tRow.value) : DEFAULT_TEACHERS;
-        const loadedCourses  = cRow ? JSON.parse(cRow.value)  : DEFAULT_COURSES;
-        if (!tRow) await supabase.from("app_data").upsert({ key:"cas_shared_teachers", value:JSON.stringify(DEFAULT_TEACHERS) });
-        if (!cRow) await supabase.from("app_data").upsert({ key:"cas_shared_courses",  value:JSON.stringify(DEFAULT_COURSES) });
+        const t = await window.storage.get("cas_shared_teachers", true);
+        const c = await window.storage.get("cas_shared_courses", true);
+        const loadedTeachers = t ? JSON.parse(t.value) : DEFAULT_TEACHERS;
+        const loadedCourses  = c ? JSON.parse(c.value)  : DEFAULT_COURSES;
+        // Seed defaults into storage on first run so they persist going forward
+        if (!t) await window.storage.set("cas_shared_teachers", JSON.stringify(DEFAULT_TEACHERS), true);
+        if (!c) await window.storage.set("cas_shared_courses",  JSON.stringify(DEFAULT_COURSES),  true);
         setTeachers(loadedTeachers);
         setCourses(loadedCourses);
         setStorageAllowed(true);
       } catch {
+        // User clicked Deny — fall back to defaults in local state only
         setTeachers(DEFAULT_TEACHERS);
         setCourses(DEFAULT_COURSES);
         setStorageAllowed(false);
@@ -563,13 +563,13 @@ export default function App() {
   const saveTeachers = async (val) => {
     setTeachers(val);
     if (storageAllowed) {
-      try { await supabase.from("app_data").upsert({ key:"cas_shared_teachers", value:JSON.stringify(val) }); } catch {}
+      try { await window.storage.set("cas_shared_teachers", JSON.stringify(val), true); } catch {}
     }
   };
   const saveCourses = async (val) => {
     setCourses(val);
     if (storageAllowed) {
-      try { await supabase.from("app_data").upsert({ key:"cas_shared_courses", value:JSON.stringify(val) }); } catch {}
+      try { await window.storage.set("cas_shared_courses", JSON.stringify(val), true); } catch {}
     }
   };
 
@@ -611,7 +611,11 @@ export default function App() {
   return (
     <div>
       <style>{CSS}</style>
-
+      {!storageAllowed && (
+        <div style={{ background:"#FAEEDA", borderBottom:"2px solid #BA7517", padding:"8px 20px", fontSize:12, color:"#633806", display:"flex", alignItems:"center", gap:8 }}>
+          ⚠️ Shared storage access was denied. Changes to teachers and courses will not be saved after you close this tab. To persist data, refresh and click <b>Allow</b> on the storage prompt.
+        </div>
+      )}
 
       <nav className="nav">
         <div className="nav-logo">CAS <em>Humanities</em> Training Hub</div>
@@ -784,9 +788,17 @@ function AdminReflectionsPanel({ teachers }) {
   useEffect(() => {
     (async () => {
       try {
-        const { data: rows } = await supabase.from("app_data").select("value").like("key","cas_lesson_reflection_%");
-        if (rows) {
-          const valid = rows.map(r => { try { return JSON.parse(r.value); } catch { return null; }}).filter(Boolean).sort((a,b) => new Date(b.timestamp)-new Date(a.timestamp));
+        const keys = await window.storage.list("cas_lesson_reflection_", true);
+        if (keys && keys.keys) {
+          const entries = await Promise.all(
+            keys.keys.map(async k => {
+              try {
+                const r = await window.storage.get(k, true);
+                return r ? JSON.parse(r.value) : null;
+              } catch { return null; }
+            })
+          );
+          const valid = entries.filter(Boolean).sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
           setReflections(valid);
         }
       } catch {}
@@ -878,7 +890,7 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
     if (!found) { setErr("Email not recognised. Ask your HOD to add you in Admin."); return; }
     setErr("");
     try {
-      const { data: progRow } = await supabase.from("app_data").select("value").eq("key","teacher_prog_"+found.id).single(); const stored = progRow ? { value: progRow.value } : null;
+      const stored = await window.storage.get("teacher_prog_" + found.id, true);
       setProgress(stored ? JSON.parse(stored.value) : {});
     } catch { setProgress({}); }
     setTeacher(found);
@@ -889,7 +901,7 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
     setProgress(updated);
     setSaving(true);
     try {
-      await supabase.from("app_data").upsert({ key:"teacher_prog_"+teacher.id, value:JSON.stringify(updated) });
+      await window.storage.set("teacher_prog_" + teacher.id, JSON.stringify(updated), true);
       const modCounts = {};
       MODULES.forEach(mod => { modCounts[mod.id] = mod.lessons.filter(l => updated[l.id]).length; });
       saveTeachers(teachers.map(t => t.id === teacher.id ? { ...t, progress: modCounts } : t));
@@ -1637,11 +1649,11 @@ function MediaLesson({ lesson, done, onComplete, teacherId }) {
         if (m.note && reflection.trim() && teacherId) {
           try {
             const key = "cas_lesson_reflection_" + teacherId + "_" + lesson.id;
-            await supabase.from("app_data").upsert({ key, value:JSON.stringify({
+            await window.storage.set(key, JSON.stringify({
               teacherId, lessonId: lesson.id, lessonTitle: lesson.title,
               question: m.note, answer: reflection.trim(),
               timestamp: new Date().toISOString()
-            })});
+            }), true);
           } catch {}
         }
         onComplete();
