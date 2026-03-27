@@ -282,7 +282,7 @@ const DEFAULT_COURSES = [
 const MODULES = [
   {
     id: "m0", seq: 1, title: "Onboarding", icon: "🚀", color: "#1D9E75", light: "#E1F5EE",
-    desc: "Everything you need to know before your first lesson at CAS Humanities.",
+    description: "Everything you need to know before your first lesson at CAS Humanities.",
     lessons: [
       {
         id: "m0l1", title: "Welcome to CAS Humanities", dur: "5 min", type: "read",
@@ -319,7 +319,7 @@ const MODULES = [
   },
   {
     id: "m1", seq: 5, title: "Department Non-Negotiables", icon: "📋", color: "#1044A3", light: "var(--blue-pale)",
-    desc: "The six baseline standards every Humanities lesson must meet — grounded in C3 and the 4-day inquiry model.",
+    description: "The six baseline standards every Humanities lesson must meet — grounded in C3 and the 4-day inquiry model.",
     lessons: [
       {
         id: "m1l1", title: "The 6 Non-Negotiables Explained", dur: "10 min", type: "read",
@@ -358,7 +358,7 @@ const MODULES = [
   },
   {
     id: "m2", seq: 2, title: "The C3 Framework", icon: "🔍", color: "#1044A3", light: "#EAF2FF",
-    desc: "Master the four Dimensions of the Inquiry Arc — from question to argument.",
+    description: "Master the four Dimensions of the Inquiry Arc — from question to argument.",
     lessons: [
       {
         id: "m2l1", title: "The Inquiry Arc — Four Dimensions", dur: "12 min", type: "read",
@@ -408,7 +408,7 @@ const MODULES = [
   },
   {
     id: "m3", seq: 3, title: "5E Lesson Structure", icon: "⚙️", color: "#E8650A", light: "#FEF0E6",
-    desc: "Design lessons that move through a complete 5E learning cycle in 45 minutes.",
+    description: "Design lessons that move through a complete 5E learning cycle in 45 minutes.",
     lessons: [
       {
         id: "m3l1", title: "5E Deep Dive — Each Stage Unpacked", dur: "12 min", type: "read",
@@ -445,7 +445,7 @@ const MODULES = [
   },
   {
     id: "m4", seq: 4, title: "Subject-Specific Application", icon: "📚", color: "#1A5CC8", light: "#EAF2FF",
-    desc: "Apply C3 and 5E to your specific subject — content adapts to the courses assigned to you in Admin.",
+    description: "Apply C3 and 5E to your specific subject — content adapts to the courses assigned to you in Admin.",
     lessons: [
       { id: "m4l1", title: "Your Subject's Lens — C3 by Discipline", dur: "14 min", type: "read", subjectSpecific: true, contentKey: "lens" },
       { id: "m4l2", title: "Planning Your First C3 Unit", dur: "12 min", type: "scenario", subjectSpecific: true, contentKey: "scenario" },
@@ -624,18 +624,7 @@ export default function App() {
     fetchInitialData();
   }, []);
 
-  const saveTeachers = async (val) => {
-    setTeachers(val);
-    if (storageAllowed) {
-      try { await window.storage.set("cas_shared_teachers", JSON.stringify(val), true); } catch { }
-    }
-  };
-  const saveCourses = async (val) => {
-    setCourses(val);
-    if (storageAllowed) {
-      try { await window.storage.set("cas_shared_courses", JSON.stringify(val), true); } catch { }
-    }
-  };
+
 
   // ── TRAINING SESSION ──────────────────────────────────────────
   // null = not yet chosen, "guest" = guest mode, teacher object = logged in
