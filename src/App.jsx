@@ -624,7 +624,25 @@ export default function App() {
     fetchInitialData();
   }, []);
 
+  const saveTeachers = async (val) => {
+    setTeachers(val);
+    try {
+      const { error } = await supabase.from('teachers').upsert(val);
+      if (error) throw error;
+    } catch (err) {
+      notify("⚠️ Cloud Sync Error: " + err.message);
+    }
+  };
 
+  const saveCourses = async (val) => {
+    setCourses(val);
+    try {
+      const { error } = await supabase.from('courses').upsert(val);
+      if (error) throw error;
+    } catch (err) {
+      notify("⚠️ Course Sync Error: " + err.message);
+    }
+  };
 
   // ── TRAINING SESSION ──────────────────────────────────────────
   // null = not yet chosen, "guest" = guest mode, teacher object = logged in
@@ -1861,7 +1879,7 @@ function AdminDash({ teachers, saveTeachers, courses, saveCourses, notify }) {
   const [editCourse, setEditCourse] = useState(null);
   const [editTeacher, setEditTeacher] = useState(null);
   const [teacherForm, setTeacherForm] = useState({ name: "", subject: "AP Economics", role: "New Joiner", email: "", courses: [] });
-  const [courseForm, setCourseForm] = useState({ name: "", icon: "📚", desc: "" });
+  const [courseForm, setCourseForm] = useState({ name: "", icon: "📚", description: "" });
 
   const certCount = teachers.filter(t => teacherPct(t) === 100).length;
   const inProg = teachers.filter(t => { const p = teacherPct(t); return p > 0 && p < 100; }).length;
@@ -1908,10 +1926,20 @@ function AdminDash({ teachers, saveTeachers, courses, saveCourses, notify }) {
 
     let updatedList;
     if (editCourse) {
-      updatedList = courses.map(c => c.id === editCourse.id ? { ...c, ...courseForm } : c);
+      updatedList = courses.map(c => c.id === editCourse.id ? {
+        ...c,
+        name: courseForm.name,
+        icon: courseForm.icon,
+        description: courseForm.description // Force-mapping this name
+      } : c);
       notify("✓ Course updated");
     } else {
-      const nc = { id: "c" + Date.now(), ...courseForm };
+      const nc = {
+        id: "c" + Date.now(),
+        name: courseForm.name,
+        icon: courseForm.icon,
+        description: courseForm.description // Force-mapping this name
+      };
       updatedList = [...courses, nc];
       notify("✓ Course added");
     }
@@ -1920,7 +1948,7 @@ function AdminDash({ teachers, saveTeachers, courses, saveCourses, notify }) {
     await saveCourses(updatedList);
 
     setShowCourseModal(false);
-    setCourseForm({ name: "", icon: "📚", desc: "" });
+    setCourseForm({ name: "", icon: "📚", description: "" });
     setEditCourse(null);
   };
 
@@ -2020,7 +2048,7 @@ function AdminDash({ teachers, saveTeachers, courses, saveCourses, notify }) {
                   </div>
                 </div>
                 <h4>{c.name}</h4>
-                <p>{c.desc}</p>
+                <p>{c.description}</p>
                 <div style={{ fontSize: 11, color: "var(--slate)", marginTop: 6 }}>
                   {teachers.filter(t => (t.courses || []).includes(c.id)).length} teacher(s) assigned
                 </div>
@@ -2090,7 +2118,7 @@ function AdminDash({ teachers, saveTeachers, courses, saveCourses, notify }) {
             <p>{editCourse ? "Update the course details below." : "Add a new course to the department. It will appear in the Lesson Generator subject list and teacher profiles."}</p>
             <div className="fg"><label>Course Name *</label><input placeholder="e.g. AP Psychology" value={courseForm.name} onChange={e => setCourseForm(f => ({ ...f, name: e.target.value }))} /></div>
             <div className="fg"><label>Icon (emoji)</label><input placeholder="e.g. 🧠" value={courseForm.icon} onChange={e => setCourseForm(f => ({ ...f, icon: e.target.value }))} /></div>
-            <div className="fg"><label>Description</label><input placeholder="Short description of the course" value={courseForm.desc} onChange={e => setCourseForm(f => ({ ...f, desc: e.target.value }))} /></div>
+            <div className="fg"><label>Description</label><input placeholder="Short description of the course" value={courseForm.description} onChange={e => setCourseForm(f => ({ ...f, description: e.target.value }))} /></div>
             <div className="modal-btns">
               <button className="btn-ghost" onClick={() => { setShowCourseModal(false); setEditCourse(null); }}>Cancel</button>
               <button className="btn-primary" onClick={addCourse} disabled={!courseForm.name}>{editCourse ? "Save Changes" : "Add Course"}</button>
