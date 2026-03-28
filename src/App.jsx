@@ -262,7 +262,9 @@ tr:hover td{background:#FAFBFD}
    CONSTANTS
 ───────────────────────────────────────────────────────────────── */
 const FE_COLORS = { engage: "#1044A3", explore: "#E8650A", explain: "#1A5CC8", elaborate: "#CC5500", evaluate: "#0A1F44" };
-const ADMIN_PWD = "HODadmin2026";
+// ── Admin password from env (set VITE_ADMIN_PWD in .env / Vercel) ─
+// Falls back to "HODadmin2026" so the app still works if the var is missing.
+const ADMIN_PWD = import.meta.env.VITE_ADMIN_PWD || "HODadmin2026";
 
 /* ─────────────────────────────────────────────────────────────────
    DEFAULT COURSES
@@ -756,9 +758,16 @@ function AiChat({ systemPrompt, placeholder, title, accentColor = "var(--ink2)" 
     setBusy(true);
     try {
       const history = [...msgs, userMsg].map(m => ({ role: m.role, content: m.content }));
+      const anthropicKey = import.meta.env.VITE_ANTHROPIC_KEY;
+      if (!anthropicKey) throw new Error("AI key not configured. Add VITE_ANTHROPIC_KEY to your .env file and Vercel settings.");
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "anthropic-dangerous-direct-browser-access": "true" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": anthropicKey,
+          "anthropic-version": "2023-06-01",
+          "anthropic-dangerous-direct-browser-access": "true"
+        },
         body: JSON.stringify({
           model: "claude-sonnet-4-6", max_tokens: 1200,
           system: systemPrompt,
