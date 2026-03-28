@@ -281,11 +281,11 @@ const DEFAULT_COURSES = [
 ───────────────────────────────────────────────────────────────── */
 const MODULES = [
   {
-    id: "m0", seq: 1, title: "Onboarding", icon: "🚀", color: "#1D9E75", light: "#E1F5EE",
+    id: "m1", seq: 1, title: "Onboarding", icon: "🚀", color: "#1D9E75", light: "#E1F5EE",
     description: "Everything you need to know before your first lesson at CAS Humanities.",
     lessons: [
       {
-        id: "m0l1", title: "Welcome to CAS Humanities", dur: "5 min", type: "read",
+        id: "m1l1", title: "Welcome to CAS Humanities", dur: "5 min", type: "read",
         content: {
           intro: "Welcome to the CAS Humanities department. This onboarding module walks you through the essential routines, tools, and expectations you need to know before you step into your first lesson. Work through it at your own pace — everything here is practical and immediate.",
           sections: [
@@ -296,7 +296,7 @@ const MODULES = [
         }
       },
       {
-        id: "m0l2", title: "Your Two Weekly Submissions", dur: "8 min", type: "read",
+        id: "m1l2", title: "Your Two Weekly Submissions", dur: "8 min", type: "read",
         content: {
           intro: "Every teacher in the department has two fixed weekly submissions. These are non-negotiable routines — not occasional tasks. Missing them or submitting late affects the HOD's planning and is noted. This lesson explains exactly what each submission involves.",
           sections: [
@@ -307,7 +307,7 @@ const MODULES = [
         }
       },
       {
-        id: "m0l3", title: "Onboarding Check — What Do You Know?", dur: "6 min", type: "quiz",
+        id: "m1l3", title: "Onboarding Check — What Do You Know?", dur: "6 min", type: "quiz",
         questions: [
           { q: "What is the deadline for the Weekly Scheme of Work?", sub: "", opts: ["Friday end of day", "Monday morning", "Tuesday before 2:00 PM", "Thursday morning"], correct: 2, explain: "The Weekly Scheme of Work must be submitted every Tuesday before 2:00 PM. This gives the HOD time to review planning before the week begins." },
           { q: "What font and size is required for the Weekly Scheme of Work?", sub: "", opts: ["Arial, size 12", "Times New Roman, size 11", "Calibri, size 12", "Calibri Bold, size 11"], correct: 3, explain: "Calibri Bold, size 11 — with no italic and no underline. This is a fixed formatting requirement, not a preference. Using the wrong format is one of the most common mistakes in the first term." },
@@ -581,11 +581,11 @@ function teacherPct(t) {
    DEFAULT TEACHERS
 ───────────────────────────────────────────────────────────────── */
 const DEFAULT_TEACHERS = [
-  { id: "t1", name: "Mr. Osama", subject: "Economics", role: "Current", email: "usama.barrak@cityamericanschool.ae", joined: "Aug 2023", courses: ["c1"], progress: { m1: 3, m2: 4, m3: 3, m4: 2 } },
-  { id: "t2", name: "Mr. Mo", subject: "History", role: "Current", email: "m.mousa@cityamericanschool.ae", joined: "Sep 2021", courses: ["c2"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
-  { id: "t3", name: "Mr. Ajlony", subject: "Civics", role: "New Joiner", email: "muhammad.ahmad@cityamericanschool.ae", joined: "Jan 2026", courses: ["c4", "c5"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
-  { id: "t4", name: "James Kowalski", subject: "Geography", role: "Current", email: "j.kowalski@cas.ae", joined: "Aug 2022", courses: ["c3"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
-  { id: "t5", name: "Ms. Bahija", subject: "Civics", role: "New Joiner", email: "b.hamdi@cityamericanschool.ae", joined: "Jan 2026", courses: ["c6"], progress: { m1: 0, m2: 0, m3: 0, m4: 0 } },
+  { id: "t1", name: "Mr. Osama", subject: "Economics", role: "Current", email: "usama.barrak@cityamericanschool.ae", joined: "Aug 2023", courses: ["c1"], progress: { m1: 3, m2: 6, m3: 3, m4: 3, m5: 3 } },
+  { id: "t2", name: "Mr. Mo", subject: "History", role: "Current", email: "m.mousa@cityamericanschool.ae", joined: "Sep 2021", courses: ["c2"], progress: { m1: 0, m2: 0, m3: 0, m4: 0, m5: 0 } },
+  { id: "t3", name: "Mr. Ajlony", subject: "Civics", role: "New Joiner", email: "muhammad.ahmad@cityamericanschool.ae", joined: "Jan 2026", courses: ["c4"], progress: { m1: 0, m2: 0, m3: 0, m4: 0, m5: 0 } },
+  { id: "t4", name: "James Kowalski", subject: "Geography", role: "Current", email: "j.kowalski@cas.ae", joined: "Aug 2022", courses: ["c3"], progress: { m1: 0, m2: 0, m3: 0, m4: 0, m5: 0 } },
+  { id: "t5", name: "Ms. Bahija", subject: "Civics", role: "New Joiner", email: "b.hamdi@cityamericanschool.ae", joined: "Jan 2026", courses: ["c4"], progress: { m1: 0, m2: 0, m3: 0, m4: 0, m5: 0 } },
 ];
 
 /* ─────────────────────────────────────────────────────────────────
