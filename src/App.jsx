@@ -668,12 +668,14 @@ export default function App() {
     setActiveLesson(null);
     setActiveMod(null);
 
-    // Fresh pull from cloud to ensure Teacher/Admin are in sync
+    // Pull fresh data from cloud to ensure Teacher Portal isn't using old local data
     try {
       const { data: tData } = await supabase.from('teachers').select('*');
-      if (tData) setTeachers(tData);
+      if (tData && tData.length > 0) {
+        setTeachers(tData);
+      }
     } catch (e) {
-      console.log("Quick sync failed", e);
+      console.log("Cloud sync failed", e);
     }
   };
 
@@ -1002,20 +1004,21 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
   };
 
   const markDone = async (lessonId) => {
+    // 1. Update UI immediately
     const updatedProg = { ...progress, [lessonId]: true };
-    setProgress(updatedProg); // Update UI immediately
+    setProgress(updatedProg);
     setSaving(true);
 
     try {
-      // TARGETED UPDATE: Only sends the progress column to the specific teacher row
+      // 2. Targeted update to the specific teacher's progress column
       const { error } = await supabase
         .from('teachers')
         .update({ progress: updatedProg })
-        .eq('id', teacher.id);
+        .eq('id', teacher.id); // This ensures you only update YOUR row
 
       if (error) throw error;
 
-      // Update global state for Admin view sync
+      // 3. Sync the local list so Admin view updates without a refresh
       const updatedList = teachers.map(t =>
         t.id === teacher.id ? { ...t, progress: updatedProg } : t
       );
@@ -1023,7 +1026,7 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
 
       notify("✓ Progress synced to cloud!");
     } catch (err) {
-      console.error("Sync error:", err);
+      console.error("Supabase Error:", err);
       notify("⚠️ Offline mode: Progress saved locally.");
     } finally {
       setSaving(false);
