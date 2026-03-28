@@ -996,37 +996,42 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
     const found = teachers.find(t => t.email.toLowerCase() === email.toLowerCase().trim());
     if (!found) { setErr("Email not recognised. Ask your HOD to add you in Admin."); return; }
     setErr("");
+
+    setSaving(true);
     try {
-      const stored = await window.storage.get("teacher_prog_" + found.id, true);
-      setProgress(stored ? JSON.parse(stored.value) : {});
-    } catch { setProgress({}); }
-    setTeacher(found);
+      // Pull the latest progress for this teacher from Supabase
+      const { data, error } = await supabase
+        .from('teachers')
+        .select('progress')
+        .eq('id', found.id)
+        .single();
+
+      if (error && error.code !== 'PGRST116') throw error; // PGRST116 just means no data found yet
+      setProgress(data?.progress || {});
+    } catch (e) {
+      console.error("Cloud fetch failed, using local data", e);
+      setProgress(found.progress || {});
+    } finally {
+      setTeacher(found);
+      setSaving(false);
+    }
   };
 
   const markDone = async (lessonId) => {
-    // 1. Update UI immediately
     const updatedProg = { ...progress, [lessonId]: true };
     setProgress(updatedProg);
     setSaving(true);
 
     try {
-      // 2. Targeted update to the specific teacher's progress column
       const { error } = await supabase
         .from('teachers')
         .update({ progress: updatedProg })
-        .eq('id', teacher.id); // This ensures you only update YOUR row
+        .eq('id', teacher.id);
 
       if (error) throw error;
-
-      // 3. Sync the local list so Admin view updates without a refresh
-      const updatedList = teachers.map(t =>
-        t.id === teacher.id ? { ...t, progress: updatedProg } : t
-      );
-      setTeachers(updatedList);
-
       notify("✓ Progress synced to cloud!");
     } catch (err) {
-      console.error("Supabase Error:", err);
+      console.error("Sync error:", err);
       notify("⚠️ Offline mode: Progress saved locally.");
     } finally {
       setSaving(false);
