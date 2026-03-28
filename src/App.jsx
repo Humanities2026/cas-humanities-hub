@@ -1003,31 +1003,28 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
 
   const markDone = async (lessonId) => {
     const updatedProg = { ...progress, [lessonId]: true };
-    setProgress(updatedProg);
+    setProgress(updatedProg); // Update UI immediately
     setSaving(true);
 
     try {
-      // 1. We update the specific teacher row
+      // TARGETED UPDATE: Only sends the progress column to the specific teacher row
       const { error } = await supabase
         .from('teachers')
-        .upsert({
-          ...teacher,
-          progress: updatedProg
-        });
+        .update({ progress: updatedProg })
+        .eq('id', teacher.id);
 
       if (error) throw error;
 
-      // 2. We update the global 'teachers' state so Admin sees it immediately
+      // Update global state for Admin view sync
       const updatedList = teachers.map(t =>
         t.id === teacher.id ? { ...t, progress: updatedProg } : t
       );
-      saveTeachers(updatedList);
+      setTeachers(updatedList);
 
-      notify("✓ Progress saved to cloud!");
+      notify("✓ Progress synced to cloud!");
     } catch (err) {
       console.error("Sync error:", err);
-      // If fetch fails, we notify the user but keep the local progress so they can keep working
-      notify("⚠️ Sync error (Offline mode): Progress saved locally.");
+      notify("⚠️ Offline mode: Progress saved locally.");
     } finally {
       setSaving(false);
     }
