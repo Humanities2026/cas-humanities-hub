@@ -2408,6 +2408,12 @@ function AdminDash({ teachers, saveTeachers, courses, saveCourses, notify }) {
                       <td>
                         <div style={{ display: "flex", gap: 5 }}>
                           <button style={{ padding: "3px 9px", border: "1px solid var(--border)", background: "var(--sky-pale)", color: "var(--ink2)", borderRadius: 6, fontSize: 11, fontWeight: 700, cursor: "pointer" }} onClick={() => { setEditTeacher(t); setTeacherForm({ name: t.name, subject: t.subject, role: t.role, email: t.email, courses: t.courses || [] }); setShowTeacherModal(true); }}>Edit</button>
+                          <button style={{ padding: "3px 9px", border: "1px solid #1A9E75", background: "#E8F8F2", color: "#1A9E75", borderRadius: 6, fontSize: 11, fontWeight: 700, cursor: "pointer" }} onClick={() => {
+                            const allDone = {};
+                            MODULES.forEach(m => m.lessons.forEach(l => { allDone[l.id] = true; }));
+                            saveTeachers(teachers.map(x => x.id === t.id ? { ...x, progress: allDone } : x));
+                            notify("✓ All modules unlocked for " + t.name);
+                          }}>Unlock All</button>
                           <button className="btn-danger" onClick={() => setDelTeacherId(t.id)}>Remove</button>
                         </div>
                       </td>
