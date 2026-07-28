@@ -462,6 +462,126 @@ const MODULES = [
       },
     ]
   },
+  /* ── MODULE 6 ── */
+  {
+    id: "m6", seq: 6, icon: "🇦🇪", title: "UAE National Framework", color: "#1A9E75",
+    desc: "Understand UAE MoE standards, national values, cultural integration requirements, and Vision 2031 alignment for humanities teaching.",
+    lessons: [
+      {
+        id: "m6l1", title: "UAE MoE Standards & Vision 2031", dur: "8 min", type: "read",
+        content: {
+          intro: "Teaching in the UAE means operating within a national framework that combines global best practices with the UAE's vision for education. Understanding this framework makes your C3-aligned teaching doubly powerful — and ensures you are fully compliant when inspectors observe.",
+          sections: [
+            { icon: "🎯", heading: "UAE Vision 2031 & Education", body: "UAE Vision 2031 envisions a knowledge-based economy led by empowered citizens. Every school operating in the UAE must align to MoE's National Agenda Parameters — which include high-quality outcomes in critical thinking, citizenship, cultural appreciation, and Arabic/Islamic values.", key: { label: "Your Responsibility", text: "Every unit you plan must serve both C3 inquiry standards and UAE Vision 2031. These are not in conflict — evidence-based reasoning, civic participation, and cultural understanding reinforce each other." } },
+            { icon: "📋", heading: "MoE Social Studies Standards", body: "The UAE Ministry of Education sets standards covering: National Identity, Cultural Heritage, Civic Values, Global Citizenship, Historical Awareness, Geographic Understanding, and Economic Literacy. Humanities teachers are expected to embed UAE contexts and examples into their subject area throughout the year.", key: { label: "Practical Application", text: "Economics: include UAE economic data (oil dependence, diversification, Vision 2031). History: connect global events to UAE and Arab World history. Civics: reference the UAE Constitution and Federal System. Geography: use UAE case studies on urbanisation, water, and tourism." } },
+            { icon: "🌍", heading: "Moral Education & UAE Values Integration", body: "The UAE Moral Education curriculum runs across all subjects. Humanities teachers must embed: Personal Growth & Identity, Civic Studies, Cultural Studies, and Character & Morality. These are not separate lessons — they should be integrated into your C3 units.", key: { label: "Integration Example", text: "A Civics unit on governance can integrate UAE Moral Education by including the UAE's approach to consensus-based leadership (Shura) alongside democratic systems — then students evaluate both as evidence for the compelling question." } },
+            { icon: "🤝", heading: "Cultural Awareness in a Diverse Classroom", body: "CAS serves students from many national and cultural backgrounds. Compelling questions must be framed to be culturally inclusive — inviting all students' perspectives as valid evidence. Avoid framing that privileges any single cultural worldview as 'normal'.", key: { label: "Key Practice", text: "For each compelling question, ask: 'Can a student from any cultural background engage with this using their own experience and knowledge as evidence?' If not, reframe it." } },
+          ]
+        }
+      },
+      {
+        id: "m6l2", title: "UAE Standards Alignment Quiz", dur: "6 min", type: "quiz",
+        questions: [
+          { q: "UAE humanities teachers must align their units to which overarching national framework?", sub: "", opts: ["The KHDA Teaching Standards only", "UAE Vision 2031 and MoE National Agenda Parameters", "Only the C3 Framework", "The NEASC accreditation standards"], correct: 1, explain: "UAE Vision 2031 and the MoE National Agenda Parameters provide the overarching national direction. Your C3 units must serve both inquiry standards and national educational goals simultaneously." },
+          { q: "The UAE Moral Education Curriculum (2017) requires humanities teachers to:", sub: "", opts: ["Teach a separate Moral Education period each week", "Integrate themes (Personal Growth, Civic Studies, Cultural Studies, Morality) into subject lessons", "Add at least one Islamic value per unit", "Teach in Arabic once per week"], correct: 1, explain: "The UAE Moral Education curriculum is an integration model at secondary level, not a stand-alone subject. Humanities teachers embed its four pillars into their existing units." },
+          { q: "When planning a Business unit on globalisation, which best demonstrates UAE context integration?", sub: "", opts: ["Replacing all global examples with UAE examples only", "Including UAE economic diversification data alongside global statistics, connecting to Vision 2031", "Mentioning Dubai briefly in the introduction", "Adding an Arabic vocabulary list at the end"], correct: 1, explain: "The MoE standard requires meaningful integration of UAE contexts — not superficial mention and not replacement of all global content. UAE data alongside global comparisons achieves genuine integration." },
+          { q: "A student feels their cultural perspective is not represented in the compelling question. The teacher should:", sub: "", opts: ["Explain that the question is universal and applies to everyone", "Reframe the question so diverse cultural perspectives can engage with it as valid evidence", "Create a separate question for that student", "Skip that unit's compelling question"], correct: 1, explain: "Good compelling questions in a diverse UAE classroom must be accessible from multiple cultural entry points. If a student's cultural knowledge cannot serve as evidence, the question needs reframing." },
+        ]
+      },
+      {
+        id: "m6l3", title: "UAE Values in Practice — Scenarios", dur: "10 min", type: "scenario",
+        scenario: {
+          context: "Apply UAE Framework requirements to real planning decisions in your classroom.",
+          cases: [
+            { setup: "You are planning a Grade 10 History unit on 'The Rise of Modern Nation-States.' Your default plan uses only European examples. A MoE inspector will visit in Week 3.", question: "How should you modify the unit to meet UAE Framework requirements?", options: [{ label: "A", text: "Add a brief mention of the UAE at the end of the unit" }, { label: "B", text: "Replace all European content with UAE and Arab World content" }, { label: "C", text: "Restructure at least one lesson to examine Arab/UAE state-building alongside European examples using comparative evidence" }, { label: "D", text: "Add a Moral Education period at the start of each lesson" }], correct: 2, feedback: "The MoE standard requires meaningful UAE context integration, not just surface mention or complete replacement. Comparative analysis (Arab/UAE alongside European nation-states) provides richer evidence and meets the framework standard." },
+            { setup: "During a Grade 9 Civics unit on government systems, a student challenges whether democracy is truly the best system, citing Islamic governance principles. Several students are uncomfortable.", question: "How do you respond in a way that respects UAE values and best demonstrates C3 practice?", options: [{ label: "A", text: "Tell the student this is not relevant to the unit" }, { label: "B", text: "Invite the student to bring evidence for their position and include it as one of the D3 sources — then teach source evaluation using all perspectives" }, { label: "C", text: "Agree with the student to avoid conflict" }, { label: "D", text: "Move on from the question and continue with the planned lesson" }], correct: 1, feedback: "C3 D3 teaches source evaluation — multiple perspectives, including culturally rooted ones, are evidence to evaluate. This is also UAE Moral Education integration: respectful inquiry across cultural views. Your role is to facilitate evidence-based argumentation, not to shut down or endorse any position." },
+          ]
+        }
+      },
+    ]
+  },
+  /* ── MODULE 7 ── */
+  {
+    id: "m7", seq: 7, icon: "🔍", title: "Inspection Readiness", color: "#E8650A",
+    desc: "Prepare for KHDA/ADEK school inspections — understand what inspectors look for, how to document your practice, and how to teach confidently on observation days.",
+    lessons: [
+      {
+        id: "m7l1", title: "Understanding the Inspection Framework", dur: "9 min", type: "read",
+        content: {
+          intro: "School inspections by KHDA (Dubai) and ADEK (Abu Dhabi) measure school quality against a national standard. Knowing what inspectors observe — and what they look for as evidence of outstanding teaching — allows you to teach confidently when a visitor walks in.",
+          sections: [
+            { icon: "📋", heading: "What Inspectors Observe in a Lesson", body: "During a 20–30 minute lesson visit, inspectors assess: Teaching and Learning quality, Student Engagement and Participation, Curriculum Breadth and Relevance, Assessment for Learning, and Inclusion and Differentiation. They note what teachers do and — critically — what students do.", key: { label: "Key Principle", text: "Inspectors primarily judge student learning, not teacher performance. If students are passive, it is a weak lesson regardless of how polished your explanation was." } },
+            { icon: "⭐", heading: "Outstanding vs Good Teaching Criteria", body: "Outstanding: Students drive inquiry; teacher facilitates. Evidence-based discussion is happening. Differentiation is visible in student outcomes, not just plans. Assessment shapes the lesson in real-time. Good: Teacher explains clearly; students are engaged. Tasks are appropriately challenging. Some differentiation is evident. Assessment is present but mostly summative.", key: { label: "The Gap", text: "The difference between Good and Outstanding is whether students are doing the thinking or the teacher is. C3 inquiry puts students in the driver's seat — which is exactly what Outstanding criteria reward." } },
+            { icon: "📁", heading: "What Inspectors Ask to See", body: "Inspectors may request: Your lesson plan (C3 alignment, 5E structure, differentiation), Student work samples showing progression, Your mark book and assessment records, Your scheme of work for the unit. Have these ready in a clear physical or digital folder so you spend inspection time teaching, not searching.", key: { label: "Document Ready List", text: "Unit plan with C3 alignment → Today's lesson plan with 5E structure → Student work from this term → Mark book page for this class → Scope & sequence for the year" } },
+            { icon: "🗣️", heading: "If an Inspector Walks In Mid-Lesson", body: "Continue teaching — do not shift to presentation mode. Inspectors want to see your normal practice. If students are in the Explore stage, let them explore. If they are in structured discussion, let it run. Coach students at the start of every term: 'If a visitor asks what we are doing, tell them the compelling question and which C3 dimension we are working on today.'", key: { label: "Student-Ready Phrase", text: "Our compelling question is [X]. Today we are working on Dimension [1/2/3/4] — [Developing Questions / Applying Concepts / Evaluating Sources / Communicating Conclusions]." } },
+          ]
+        }
+      },
+      {
+        id: "m7l2", title: "Inspection Preparation — Sort Activity", dur: "8 min", type: "drag",
+        drag: {
+          instruction: "Drag the inspection preparation steps into the correct order, from most urgent to do first to what you do on the observation day itself.",
+          items: [
+            { id: "ip1", text: "Update your mark book — ensure all student data and grades are current and legible", order: 0 },
+            { id: "ip2", text: "Prepare a unit folder: unit plan, lesson plans with 5E and C3 labels, differentiation grids, assessment records", order: 1 },
+            { id: "ip3", text: "Collect and date-stamp 3–5 samples of student work showing progression over the term", order: 2 },
+            { id: "ip4", text: "Coach students to state the compelling question and current C3 dimension if a visitor asks", order: 3 },
+            { id: "ip5", text: "On the inspection day, teach your planned lesson as normal — not a special showcase", order: 4 },
+          ],
+          correctFeedback: "This is the correct inspection preparation sequence. Note the final step: teach normally. The inspection tests your sustainable practice, not a one-day performance."
+        }
+      },
+      {
+        id: "m7l3", title: "Inspection Scenario Practice", dur: "12 min", type: "scenario",
+        scenario: {
+          context: "Apply inspection readiness principles to real situations you may face during a school visit.",
+          cases: [
+            { setup: "An inspector walks in during your Grade 10 Civics lesson. Students are 15 minutes in, completing a worksheet — copying definitions from the textbook into a table. The inspector sits next to a student and asks what they are doing.", question: "What is the main risk and the best immediate response?", options: [{ label: "A", text: "Risk: Worksheet looks passive. Immediately collect worksheets and start a discussion." }, { label: "B", text: "Risk: Students cannot articulate why they are doing the task. Smoothly launch a pair discussion: 'Use the definition you just found to answer: does this concept make [civic issue] better or worse?'" }, { label: "C", text: "Risk: Inspector may not like Civics. Explain the foundational task and say higher-order work is tomorrow." }, { label: "D", text: "No risk — this is standard and acceptable classroom practice." }], correct: 1, feedback: "The core risk is passive definition-copying does not demonstrate inquiry. The right response is not to panic-switch tasks — that looks worse. Instead, use a quick task that activates the definition: a pair discussion linking the concept to the compelling question. This transforms a passive task into application in 30 seconds." },
+            { setup: "An inspector asks to see your lesson plan. You pull it up on your laptop. It shows: objective, activities, and homework — but no compelling question, no C3 dimension label, and no differentiation columns.", question: "What does this indicate, and what is the long-term lesson?", options: [{ label: "A", text: "The lesson plan template is wrong. Explain verbally that the lesson covers these things." }, { label: "B", text: "The documentation does not reflect department C3 and differentiation standards. Acknowledge the gap professionally. Long-term: all plans must include the compelling question, C3 dimension, 5E phases, and differentiation." }, { label: "C", text: "The inspector is being too demanding about documentation." }, { label: "D", text: "Lesson plan format is optional — what matters is what happens in the lesson." }], correct: 1, feedback: "Documentation is part of the inspection standard. A plan without C3 alignment, a compelling question, and differentiation raises questions about consistency and sustainability of practice. The professional response is calm acknowledgement and commitment to the standard." },
+          ]
+        }
+      },
+    ]
+  },
+  /* ── MODULE 8 ── */
+  {
+    id: "m8", seq: 8, icon: "🏫", title: "NEASC Accreditation", color: "#534AB7",
+    desc: "Understand the 6 NEASC standards, how they apply to your classroom, and how to gather and present evidence for the school's accreditation self-study.",
+    lessons: [
+      {
+        id: "m8l1", title: "The 6 NEASC Standards Explained", dur: "10 min", type: "read",
+        content: {
+          intro: "NEASC (New England Association of Schools and Colleges) accreditation is a rigorous self-study process evaluating whether a school meets international standards of educational quality. As a classroom teacher, you are a primary evidence contributor for 4 of the 6 standards.",
+          sections: [
+            { icon: "1️⃣", heading: "Standard 1 — Mission, Vision & Core Values", body: "NEASC evaluates whether the school's mission drives daily practice. For you: Can you articulate how your teaching connects to the school's mission? Does your classroom practice reflect the values the school claims to hold?", key: { label: "Your Evidence", text: "Be able to state: 'My unit on [topic] advances the school's mission of [X] by building students' capacity to [Y] through C3 inquiry.'" } },
+            { icon: "2️⃣", heading: "Standard 2 — Curriculum", body: "The most directly relevant standard for humanities teachers. NEASC evaluates: Curriculum design and alignment, vertical and horizontal articulation across grade levels, C3 (or equivalent inquiry framework) integration, Scope & Sequence documentation, and evidence of cultural responsiveness.", key: { label: "Your Evidence", text: "Unit plans with C3 alignment, your term scope & sequence, student work samples showing progression, and evidence of UAE context integration all count as curriculum evidence." } },
+            { icon: "3️⃣", heading: "Standard 3 — Instruction", body: "NEASC evaluates instructional quality: Does teaching promote inquiry? Are students actively constructing knowledge? Is there evidence of differentiated instruction meeting all learners' needs? Is assessment used formatively to adapt instruction in real-time?", key: { label: "Your Evidence", text: "Lesson plans showing 5E structure and differentiation, personal reflection notes, and student data showing you adjusted instruction based on formative results." } },
+            { icon: "4️⃣", heading: "Standard 4 — Assessment", body: "NEASC evaluates both formative and summative assessment quality: Are assessments aligned to standards? Do students understand criteria in advance? Is feedback timely and specific? Is data used to improve learning?", key: { label: "Your Evidence", text: "Marked student work with written feedback, rubrics shared with students in advance, and records of how assessment data changed your planning." } },
+            { icon: "5️⃣", heading: "Standards 5 & 6 — Culture & Resources", body: "Standard 5 (School Culture & Leadership) and Standard 6 (School Resources and Support) are primarily evaluated at leadership level. Your contribution: Do you participate in professional learning? Do you collaborate with colleagues? Do you use available resources effectively?", key: { label: "Your Evidence", text: "Completing this training programme is direct evidence for Standard 5 (professional development). Keep a brief log of collaborative planning sessions with colleagues." } },
+          ]
+        }
+      },
+      {
+        id: "m8l2", title: "NEASC Evidence Quiz", dur: "7 min", type: "quiz",
+        questions: [
+          { q: "A NEASC visitor asks for evidence that 'instruction promotes student inquiry.' Which is the strongest evidence?", sub: "", opts: ["Your textbook adoption decision", "A lesson plan showing 5E with students exploring a source set before the teacher explains the concept", "A photo of your classroom wall display", "Your attendance records for the term"], correct: 1, explain: "Standard 3 requires evidence of inquiry-based teaching. A lesson plan explicitly showing the 5E model — students explore before the teacher explains — is direct documentary evidence of student inquiry." },
+          { q: "For NEASC Standard 2 (Curriculum), which document best evidences 'vertical articulation' in humanities?", sub: "", opts: ["Your individual lesson plans", "A scope & sequence showing how topics build across Grade 9, 10, and 11 with C3 alignment at each level", "Your student attendance record", "The textbook table of contents"], correct: 1, explain: "Vertical articulation means curriculum is deliberately sequenced across grade levels. A scope & sequence mapping topics and C3 dimensions across G9–G11 is direct evidence of planned vertical curriculum coherence." },
+          { q: "A NEASC reviewer asks how you use assessment data to improve instruction. Which answer best demonstrates Standard 4 compliance?", sub: "", opts: ["'I give students a grade and they can see it on the portal'", "'After every D2 quiz, I look at which concepts most students missed and reteach that concept before they begin D3 source evaluation'", "'I have a mark book and keep all grades there'", "'I follow the department scheme of work'"], correct: 1, explain: "Standard 4 requires evidence that assessment data drives instruction adjustment. Describing specific use of quiz data to change the next lesson's starting point is formative assessment in its strongest form." },
+          { q: "Completing this training programme provides direct evidence for which NEASC standard?", sub: "", opts: ["Standard 1 (Mission)", "Standard 5 (School Culture — Professional Development)", "Standard 3 (Instruction)", "Standard 6 (Resources)"], correct: 1, explain: "Standard 5 includes professional growth and participation in school-provided professional development as evidence of a healthy school culture. Completing structured training like this module series is exactly what NEASC reviewers look for." },
+        ]
+      },
+      {
+        id: "m8l3", title: "NEASC Self-Study Practice — Scenarios", dur: "12 min", type: "scenario",
+        scenario: {
+          context: "Practice gathering and presenting NEASC evidence from real teaching scenarios.",
+          cases: [
+            { setup: "The NEASC Self-Study Coordinator asks you to submit three pieces of evidence for Standard 3 (Instruction) by Friday. You have this week's materials available.", question: "Which combination gives the strongest evidence package?", options: [{ label: "A", text: "(1) Textbook page you used, (2) Photo of class seating, (3) Your employment contract" }, { label: "B", text: "(1) Lesson plan showing 5E structure and C3 dimension, (2) Annotated student work with your written feedback, (3) A paragraph explaining how you adjusted Day 3's lesson based on Day 2's exit ticket data" }, { label: "C", text: "(1) Lesson plan, (2) Attendance sheet, (3) PowerPoint slides" }, { label: "D", text: "(1) Textbook, (2) Scope & sequence, (3) Staff handbook page on instruction" }], correct: 1, feedback: "Option B provides the strongest Standard 3 evidence because it covers all three instructional quality indicators: inquiry design (5E plan), quality feedback (annotated student work), and responsive teaching (written explanation of how assessment data changed your planning)." },
+            { setup: "During the NEASC site visit, a reviewer walks into your room and asks a Grade 10 student: 'What are you learning today, and why does it matter?' The student says: 'We're doing page 47.'", question: "What does this reveal, and what is the long-term practice change needed?", options: [{ label: "A", text: "The student is nervous — this is normal and the reviewer will understand." }, { label: "B", text: "Students do not understand the compelling question or C3 dimension. Long-term fix: students must be able to state the compelling question and current dimension from Day 1 of every unit — and see it on the board throughout." }, { label: "C", text: "The student is not academic enough to explain the lesson." }, { label: "D", text: "The reviewer is testing the student unfairly." }], correct: 1, feedback: "NEASC Standards 2 and 3 both assess whether students understand the purpose of their learning. A student who says 'page 47' shows they follow instructions without understanding purpose. The fix: the compelling question must be visible, stated, and returned to every lesson until students can articulate it automatically." },
+          ]
+        }
+      },
+    ]
+  },
 ];
 
 
@@ -557,6 +677,239 @@ const SUBJECT_CONTENT = {
     }
   },
 };
+
+/* ─────────────────────────────────────────────────────────────────
+   CURRICULUM PLANS — per course, term-by-term scope & sequence
+───────────────────────────────────────────────────────────────── */
+const CURRICULUM_PLANS = {
+  c1: {
+    subject: "Economics", grade: "Grade 10",
+    terms: [
+      { term: "Term 1", focus: "Foundations of Economic Thinking", units: [
+        { week: "W1–W2", title: "Scarcity, Choice & Opportunity Cost", compQuestion: "Can we ever make a perfect economic decision?", c3: "D1–D2", uae: "UAE resource economy & Vision 2031 diversification", assessment: "Exit ticket: opportunity cost analysis" },
+        { week: "W3–W4", title: "Supply, Demand & Market Equilibrium", compQuestion: "Who really controls prices in a free market?", c3: "D2–D3", uae: "UAE real estate and oil market data", assessment: "Source evaluation: market report vs. government data" },
+        { week: "W5–W6", title: "Market Structures & Competition", compQuestion: "Is monopoly ever good for consumers?", c3: "D1–D4", uae: "UAE telecommunications market case study", assessment: "D4 argument essay" },
+      ]},
+      { term: "Term 2", focus: "Government, Policy & Global Trade", units: [
+        { week: "W7–W8", title: "Government Intervention & Market Failure", compQuestion: "Should governments always fix market failures?", c3: "D1–D4", uae: "UAE subsidy reforms case study", assessment: "Policy brief (D4)" },
+        { week: "W9–W10", title: "International Trade & Globalisation", compQuestion: "Does free trade create winners and losers?", c3: "D1–D4", uae: "UAE's role in global trade routes & Expo 2020 legacy", assessment: "Structured debate (D4)" },
+        { week: "W11–W12", title: "Money, Banking & Inflation", compQuestion: "Who is most harmed by inflation?", c3: "D2–D3", uae: "UAE Central Bank data and the dirham peg", assessment: "Data interpretation quiz" },
+      ]},
+      { term: "Term 3", focus: "Development, Equity & Future Economies", units: [
+        { week: "W13–W14", title: "Economic Development & Inequality", compQuestion: "Can economic growth reduce inequality?", c3: "D1–D4", uae: "UAE–Africa development partnerships, Vision 2031", assessment: "Research paper (D4)" },
+        { week: "W15–W16", title: "Entrepreneurship & Innovation", compQuestion: "Is entrepreneurship a solution to unemployment?", c3: "D2–D4", uae: "UAE startup ecosystem, Hub71, GITEX", assessment: "Business pitch (D4 communication)" },
+      ]},
+    ]
+  },
+  c2: {
+    subject: "World History", grade: "Grade 10",
+    terms: [
+      { term: "Term 1", focus: "Ancient World to Early Modernity", units: [
+        { week: "W1–W2", title: "The Rise of Civilisations", compQuestion: "What makes a civilisation rise or collapse?", c3: "D1–D4", uae: "Early Arabian Peninsula civilisations and trade", assessment: "Causation essay" },
+        { week: "W3–W4", title: "The Islamic Golden Age", compQuestion: "Was the Islamic Golden Age truly a global turning point?", c3: "D1–D4", uae: "Arab contributions to science, medicine, and mathematics", assessment: "D3 source evaluation" },
+        { week: "W5–W6", title: "Empire and Colonialism", compQuestion: "Did colonialism do more harm than good?", c3: "D1–D4", uae: "Gulf region under British influence, the Trucial States", assessment: "Argument essay with evidence" },
+      ]},
+      { term: "Term 2", focus: "Modern Revolutions & World Wars", units: [
+        { week: "W7–W8", title: "The Industrial Revolution", compQuestion: "Did industrialisation improve or harm human life?", c3: "D1–D4", uae: "UAE's transition from pearl diving to oil economy", assessment: "Comparative analysis" },
+        { week: "W9–W10", title: "World War I", compQuestion: "Was WWI inevitable or a catastrophic mistake?", c3: "D1–D4", uae: "Arab nationalism and the post-WWI settlement", assessment: "Structured debate (D4)" },
+        { week: "W11–W12", title: "World War II & the Holocaust", compQuestion: "How does totalitarianism take hold in a democracy?", c3: "D1–D4", uae: "WWII's impact on decolonisation across the Middle East", assessment: "Primary source portfolio (D3)" },
+      ]},
+      { term: "Term 3", focus: "Cold War to Contemporary World", units: [
+        { week: "W13–W14", title: "The Cold War", compQuestion: "Was the Cold War really about ideology, or about power?", c3: "D1–D4", uae: "Arab world, Non-Aligned Movement, UAE founding (1971)", assessment: "Multi-source essay" },
+        { week: "W15–W16", title: "Globalisation & the 21st Century", compQuestion: "Has globalisation made the world more or less equal?", c3: "D1–D4", uae: "UAE as a globalisation success story", assessment: "D4 multimedia presentation" },
+      ]},
+    ]
+  },
+  c3: {
+    subject: "Geography", grade: "Grade 11",
+    terms: [
+      { term: "Term 1", focus: "Population, Migration & Urbanisation", units: [
+        { week: "W1–W2", title: "Population Dynamics", compQuestion: "Is overpopulation a threat or a myth?", c3: "D1–D4", uae: "UAE population pyramid: expatriate majority, pro-natalist policy", assessment: "Data analysis (D3)" },
+        { week: "W3–W4", title: "Migration Patterns", compQuestion: "Does international migration create more benefit than cost?", c3: "D1–D4", uae: "UAE as a major migration destination: causes and consequences", assessment: "Policy brief (D4)" },
+        { week: "W5–W6", title: "Urbanisation", compQuestion: "Is rapid urbanisation in developing nations progress or a problem?", c3: "D1–D4", uae: "Dubai's urban growth: from fishing village to megacity", assessment: "Urban planning report (D4)" },
+      ]},
+      { term: "Term 2", focus: "Resources, Environment & Climate", units: [
+        { week: "W7–W8", title: "Water Resources", compQuestion: "Will water scarcity be the defining geopolitical crisis of this century?", c3: "D1–D4", uae: "UAE water security: desalination, groundwater depletion", assessment: "Source evaluation on scarcity claims (D3)" },
+        { week: "W9–W10", title: "Energy & Climate Change", compQuestion: "Who bears the greatest responsibility for climate change?", c3: "D1–D4", uae: "UAE energy transition: COP28 Dubai, renewable energy targets", assessment: "Argument essay (D4)" },
+        { week: "W11–W12", title: "Food Security & Agriculture", compQuestion: "Can the world feed 10 billion people sustainably?", c3: "D2–D3", uae: "UAE food import dependency, national food security strategy", assessment: "Data interpretation quiz" },
+      ]},
+      { term: "Term 3", focus: "Global Interconnections & Future Geography", units: [
+        { week: "W13–W14", title: "Trade & Development", compQuestion: "Does international trade reduce or reinforce global inequality?", c3: "D1–D4", uae: "UAE's role in global trade, Jebel Ali port, free zones", assessment: "Comparative trade analysis" },
+        { week: "W15–W16", title: "Tourism & Globalisation", compQuestion: "Is mass tourism a force for development or destruction?", c3: "D1–D4", uae: "UAE tourism industry: economic benefits vs. environmental costs", assessment: "D4 multimedia presentation" },
+      ]},
+    ]
+  },
+  c4: {
+    subject: "Civics", grade: "Grades 9–11 (All Levels)",
+    terms: [
+      { term: "Term 1", focus: "Rights, Identity & Government", units: [
+        { week: "W1–W2", title: "What Is a Citizen?", compQuestion: "Does citizenship mean the same thing in every country?", c3: "D1–D4", uae: "UAE citizenship law, residency and nationality frameworks", assessment: "Civic reflection (D4)" },
+        { week: "W3–W4", title: "Rights & Responsibilities", compQuestion: "Can rights exist without responsibilities?", c3: "D1–D4", uae: "UAE Constitution — rights and duties of citizens and residents", assessment: "Rights audit (D3 source analysis)" },
+        { week: "W5–W6", title: "Forms of Government", compQuestion: "What makes a government legitimate?", c3: "D1–D4", uae: "UAE Federal System: Supreme Council, Council of Ministers, FNC", assessment: "Comparative governance essay" },
+      ]},
+      { term: "Term 2", focus: "Democracy, Law & Justice", units: [
+        { week: "W7–W8", title: "Democracy & Participation", compQuestion: "Is democracy the best system of government?", c3: "D1–D4", uae: "UAE's consultative democracy model (Shura) vs. electoral democracies", assessment: "Structured debate (D4)" },
+        { week: "W9–W10", title: "Rule of Law & Justice", compQuestion: "Is the rule of law truly equal for everyone?", c3: "D1–D4", uae: "UAE legal system: civil, sharia, and international law elements", assessment: "Case analysis (D3)" },
+        { week: "W11–W12", title: "Civil Liberties & Their Limits", compQuestion: "Should freedom of speech have limits?", c3: "D1–D4", uae: "UAE Cybercrime law and freedom of expression context", assessment: "Policy position paper (D4)" },
+      ]},
+      { term: "Term 3", focus: "Global Citizenship & Civic Action", units: [
+        { week: "W13–W14", title: "International Organisations & Global Governance", compQuestion: "Can international organisations solve global problems?", c3: "D1–D4", uae: "UAE's role at the UN, Arab League, Gulf Cooperation Council", assessment: "UN simulation (D4)" },
+        { week: "W15–W16", title: "Civic Action & Youth Leadership", compQuestion: "Can young people make a real difference?", c3: "D1–D4", uae: "UAE Youth Council, Emirates Youth Council, student leadership programmes", assessment: "Civic action project (D4)" },
+      ]},
+    ]
+  },
+  c5: {
+    subject: "Sociology", grade: "Grade 10",
+    terms: [
+      { term: "Term 1", focus: "Identity, Socialisation & Culture", units: [
+        { week: "W1–W2", title: "Socialisation", compQuestion: "Does family or peer group shape us more?", c3: "D1–D4", uae: "UAE family structures, generational change in Emirati society", assessment: "Observation report (D3)" },
+        { week: "W3–W4", title: "Culture & Identity", compQuestion: "Can you belong to more than one culture at once?", c3: "D1–D4", uae: "UAE multicultural society: 200+ nationalities, Year of Tolerance", assessment: "Identity case studies (D3)" },
+        { week: "W5–W6", title: "Gender & Society", compQuestion: "How much has gender equality actually changed?", c3: "D1–D4", uae: "UAE women in leadership, gender statistics, Women's Balance Charter", assessment: "Data analysis essay" },
+      ]},
+      { term: "Term 2", focus: "Inequality, Power & Social Change", units: [
+        { week: "W7–W8", title: "Social Stratification & Class", compQuestion: "Is social inequality inevitable?", c3: "D1–D4", uae: "UAE socioeconomic stratification: citizen vs. expat structures", assessment: "Sociological analysis (D4)" },
+        { week: "W9–W10", title: "Media & Social Influence", compQuestion: "Does social media strengthen or fragment social identity?", c3: "D1–D4", uae: "UAE social media usage rates, digital content regulation", assessment: "Source analysis (D3)" },
+        { week: "W11–W12", title: "Deviance & Social Control", compQuestion: "Does punishment reduce crime or create more of it?", c3: "D1–D4", uae: "UAE crime statistics and justice system approach", assessment: "Policy comparison essay" },
+      ]},
+      { term: "Term 3", focus: "Institutions & Social Change", units: [
+        { week: "W13–W14", title: "Religion & Society", compQuestion: "Does religion unite or divide societies?", c3: "D1–D4", uae: "UAE religious tolerance law, Abrahamic Family House", assessment: "Comparative analysis (D4)" },
+        { week: "W15–W16", title: "Globalisation & Social Change", compQuestion: "Is globalisation creating one world culture?", c3: "D1–D4", uae: "Cultural preservation in UAE amid globalisation pressures", assessment: "Sociological argument essay" },
+      ]},
+    ]
+  },
+  c6: {
+    subject: "Business & Marketing", grade: "Grade 11",
+    terms: [
+      { term: "Term 1", focus: "Business Foundations & Strategy", units: [
+        { week: "W1–W2", title: "What Makes a Business Succeed?", compQuestion: "Is a strong business model enough to guarantee success?", c3: "D1–D4", uae: "UAE startup ecosystem, GITEX, Silicon Oasis, Hub71", assessment: "Business model canvas (D4)" },
+        { week: "W3–W4", title: "Market Research & Consumer Behaviour", compQuestion: "Can you predict what consumers will buy?", c3: "D1–D4", uae: "UAE consumer spending data, Ramadan retail trends", assessment: "Market research report (D4)" },
+        { week: "W5–W6", title: "Branding & the Marketing Mix", compQuestion: "Is brand image more powerful than product quality?", c3: "D1–D4", uae: "UAE brand case studies: Emirates airline, Dubai Tourism, DP World", assessment: "Brand analysis (D3)" },
+      ]},
+      { term: "Term 2", focus: "Ethics, CSR & Global Markets", units: [
+        { week: "W7–W8", title: "Corporate Social Responsibility", compQuestion: "Is CSR genuine ethics or just good marketing?", c3: "D1–D4", uae: "UAE corporate sustainability, ESG goals, ADNOC net-zero commitments", assessment: "Source evaluation: company report vs. NGO (D3)" },
+        { week: "W9–W10", title: "Digital Marketing & E-Commerce", compQuestion: "Has digital marketing made advertising more or less ethical?", c3: "D1–D4", uae: "UAE e-commerce growth, Noon.com vs. Amazon.ae case study", assessment: "Digital campaign analysis" },
+        { week: "W11–W12", title: "Globalisation & International Business", compQuestion: "Should multinationals follow local or global standards?", c3: "D2–D3", uae: "UAE as a global hub: free zones, FDI, Expo 2020 legacy", assessment: "Case study comparison (D3)" },
+      ]},
+      { term: "Term 3", focus: "Innovation & Entrepreneurship", units: [
+        { week: "W13–W14", title: "Entrepreneurship & Risk", compQuestion: "Is entrepreneurship the best solution to unemployment?", c3: "D1–D4", uae: "UAE entrepreneurship policy, Youth Enterprise, startup visa", assessment: "Pitch deck presentation (D4)" },
+        { week: "W15–W16", title: "The Future of Business", compQuestion: "Will AI replace human workers, or create new ones?", c3: "D1–D4", uae: "UAE AI Strategy 2031, automation in UAE economy", assessment: "Policy brief (D4)" },
+      ]},
+    ]
+  },
+};
+
+/* ─────────────────────────────────────────────────────────────────
+   TEACHER CURRICULUM PLAN VIEW
+───────────────────────────────────────────────────────────────── */
+function TeacherCurriculumPlan({ teacher, courses }) {
+  const assignedCourses = (teacher.courses || [])
+    .map(cid => courses.find(c => c.id === cid)).filter(Boolean);
+  const [activeCourse, setActiveCourse] = useState(assignedCourses[0]?.id || null);
+  const [activeTerm, setActiveTerm] = useState(0);
+
+  if (!assignedCourses.length) {
+    return (
+      <div style={{ textAlign: "center", padding: "56px 20px" }}>
+        <div style={{ fontSize: 48, marginBottom: 14 }}>📋</div>
+        <h3 style={{ fontFamily: "'Playfair Display',serif", fontSize: 20, color: "var(--ink)", marginBottom: 8 }}>No Courses Assigned</h3>
+        <p style={{ fontSize: 14, color: "var(--slate)", lineHeight: 1.6 }}>Ask your HOD to assign your courses in the Admin dashboard. Your curriculum plan will appear here automatically.</p>
+      </div>
+    );
+  }
+
+  const plan = activeCourse ? CURRICULUM_PLANS[activeCourse] : null;
+  const termData = plan?.terms[activeTerm] || null;
+
+  const C3_COLORS = { "D1": "#534AB7", "D2": "#1A9E75", "D3": "#E8650A", "D4": "#1044A3", "D1–D2": "#534AB7", "D2–D3": "#1A9E75", "D2–D4": "#1044A3", "D1–D4": "#0A1F44", "D1–D3": "#534AB7" };
+
+  return (
+    <div>
+      {/* Course tabs — only if multiple courses assigned */}
+      {assignedCourses.length > 1 && (
+        <div style={{ display: "flex", gap: 6, marginBottom: 16, flexWrap: "wrap" }}>
+          {assignedCourses.map(c => (
+            <button key={c.id} onClick={() => { setActiveCourse(c.id); setActiveTerm(0); }}
+              style={{ padding: "7px 15px", border: "2px solid", borderColor: activeCourse === c.id ? "var(--ink2)" : "var(--border)", borderRadius: 99, fontSize: 13, fontWeight: 700, cursor: "pointer", background: activeCourse === c.id ? "var(--ink2)" : "var(--card)", color: activeCourse === c.id ? "#fff" : "var(--ink)" }}>
+              {c.icon} {c.name}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {plan ? (
+        <>
+          {/* Plan header */}
+          <div style={{ background: "linear-gradient(135deg,var(--ink),var(--ink2))", borderRadius: 12, padding: "20px 24px", marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,.6)", fontWeight: 600, letterSpacing: ".8px", textTransform: "uppercase", marginBottom: 4 }}>{plan.grade}</div>
+              <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 20, color: "#fff" }}>{plan.subject} — Scope & Sequence</div>
+            </div>
+            <div style={{ display: "flex", gap: 6 }}>
+              {[["🎯", "C3"], ["🇦🇪", "UAE"], ["📝", "Assessment"]].map(([icon, label]) => (
+                <div key={label} style={{ background: "rgba(255,255,255,.12)", borderRadius: 7, padding: "5px 10px", fontSize: 11, color: "rgba(255,255,255,.8)", fontWeight: 600 }}>{icon} {label} aligned</div>
+              ))}
+            </div>
+          </div>
+
+          {/* Term tabs */}
+          <div style={{ display: "flex", gap: 6, marginBottom: 16 }}>
+            {plan.terms.map((t, i) => (
+              <button key={i} onClick={() => setActiveTerm(i)}
+                style={{ flex: 1, padding: "9px 12px", border: "2px solid", borderColor: activeTerm === i ? "var(--ink2)" : "var(--border)", borderRadius: 9, fontSize: 13, fontWeight: 700, cursor: "pointer", background: activeTerm === i ? "var(--ink2)" : "var(--card)", color: activeTerm === i ? "#fff" : "var(--ink)", transition: "all .18s" }}>
+                {t.term}
+              </button>
+            ))}
+          </div>
+
+          {/* Term focus label */}
+          {termData && (
+            <div style={{ background: "var(--sky-pale)", border: "1px solid var(--border)", borderRadius: 9, padding: "10px 16px", marginBottom: 14, fontSize: 13, color: "var(--ink2)", fontWeight: 600 }}>
+              📌 {termData.term} Focus: <em style={{ fontWeight: 400 }}>{termData.focus}</em>
+            </div>
+          )}
+
+          {/* Units table */}
+          {termData && (
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {termData.units.map((unit, i) => (
+                <div key={i} style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 12, overflow: "hidden", boxShadow: "var(--sh)" }}>
+                  {/* Unit header */}
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", borderBottom: "1px solid var(--border)", background: "#F8FAFD" }}>
+                    <div style={{ width: 32, height: 32, borderRadius: 8, background: "var(--ink)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: "#fff", flexShrink: 0 }}>{unit.week.split("–")[0]}</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, fontSize: 15, color: "var(--ink)" }}>{unit.title}</div>
+                      <div style={{ fontSize: 11, color: "var(--slate)" }}>{unit.week}</div>
+                    </div>
+                    <div style={{ padding: "3px 10px", borderRadius: 99, fontSize: 11, fontWeight: 700, background: (C3_COLORS[unit.c3] || "var(--ink)") + "18", color: C3_COLORS[unit.c3] || "var(--ink)", border: `1px solid ${(C3_COLORS[unit.c3] || "#ccc")}44` }}>C3 {unit.c3}</div>
+                  </div>
+                  {/* Unit body */}
+                  <div style={{ padding: "14px 18px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                    <div>
+                      <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".7px", color: "var(--slate)", marginBottom: 5 }}>❓ Compelling Question</div>
+                      <div style={{ fontSize: 13, color: "var(--ink)", fontStyle: "italic", lineHeight: 1.5 }}>"{unit.compQuestion}"</div>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".7px", color: "var(--slate)", marginBottom: 5 }}>🇦🇪 UAE Context</div>
+                      <div style={{ fontSize: 13, color: "var(--ink)", lineHeight: 1.5 }}>{unit.uae}</div>
+                    </div>
+                    <div style={{ gridColumn: "1 / -1" }}>
+                      <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".7px", color: "var(--slate)", marginBottom: 5 }}>📝 Key Assessment</div>
+                      <div style={{ display: "inline-block", background: "var(--orange-pale)", border: "1px solid #F0A060", borderRadius: 7, padding: "4px 11px", fontSize: 12, color: "var(--orange)", fontWeight: 600 }}>{unit.assessment}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <div style={{ textAlign: "center", padding: "40px 20px", color: "var(--slate)", fontSize: 14 }}>
+          Curriculum plan not yet available for this course. Contact your HOD.
+        </div>
+      )}
+    </div>
+  );
+}
 
 function getSubjectLessons(teacherCourseIds, allCourses) {
   const assigned = (teacherCourseIds || []).map(cid => allCourses.find(c => c.id === cid)).filter(Boolean);
@@ -1000,6 +1353,7 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
   const [saving, setSaving] = useState(false);
   const [activeMod, setActiveMod] = useState(null);
   const [activeLesson, setActiveLesson] = useState(null);
+  const [portalView, setPortalView] = useState("modules");
 
   const handleLogin = async () => {
     const found = teachers.find(t => t.email.toLowerCase() === email.toLowerCase().trim());
@@ -1207,7 +1561,7 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             {saving && <span style={{ fontSize: 11, color: "var(--orange)", fontWeight: 600 }}>💾 Saving…</span>}
-            <button onClick={() => { setTeacher(null); setProgress({}); setEmail(""); setActiveMod(null); setActiveLesson(null); }}
+            <button onClick={() => { setTeacher(null); setProgress({}); setEmail(""); setActiveMod(null); setActiveLesson(null); setPortalView("modules"); }}
               style={{ background: "rgba(255,255,255,.15)", border: "none", color: "#fff", borderRadius: 7, padding: "5px 13px", cursor: "pointer", fontSize: 12, fontWeight: 600 }}>
               Sign out
             </button>
@@ -1222,8 +1576,23 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
         </div>
       </div>
 
+      {/* Portal view tabs */}
+      <div style={{ display: "flex", gap: 6, background: "var(--card)", padding: 5, borderRadius: 10, boxShadow: "var(--sh)", marginBottom: 18 }}>
+        {[["modules", "📚 Training Modules"], ["curriculum", "📋 My Curriculum Plan"]].map(([v, l]) => (
+          <button key={v} onClick={() => { setPortalView(v); setActiveMod(null); }}
+            style={{ flex: 1, padding: "9px 12px", border: "none", borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: "pointer", background: portalView === v ? "var(--ink2)" : "transparent", color: portalView === v ? "#fff" : "var(--slate)", transition: "all .18s" }}>
+            {l}
+          </button>
+        ))}
+      </div>
+
+      {/* Curriculum plan view */}
+      {portalView === "curriculum" && (
+        <TeacherCurriculumPlan teacher={teacher} courses={courses} />
+      )}
+
       {/* Module list — accordion style, each opens inline */}
-      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      {portalView === "modules" && <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         {MODULES.map(mod => {
           const modDone = mod.lessons.filter(l => progress[l.id]).length;
           const modPct = Math.round((modDone / mod.lessons.length) * 100);
@@ -1290,9 +1659,9 @@ function TeacherTrainingPortal({ teachers, saveTeachers, courses, notify }) {
             </div>
           );
         })}
-      </div>
+      </div>}
 
-      {totalPct === 100 && (
+      {portalView === "modules" && totalPct === 100 && (
         <div style={{
           marginTop: 20, background: "linear-gradient(135deg,var(--ink2),var(--orange))", borderRadius: 12,
           padding: "20px 24px", textAlign: "center", color: "#fff"
